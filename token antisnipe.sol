@@ -428,7 +428,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     ) internal virtual {}
 }
 
-contract Token8 is ERC20, Ownable {
+contract TrumpinDaHOOD is ERC20, Ownable {
 
     IUniswapV2Router02 public immutable _uniswapV2Router;
     address private uniswapV2Pair;
@@ -437,13 +437,13 @@ contract Token8 is ERC20, Ownable {
 
     bool private swapping;
 
-    string private constant _name = "Token8";
-    string private constant _symbol = "TKN";
+    string private constant _name = "TrumpInDaHOOD";
+    string private constant _symbol = "TIDH";
 
-    uint256 public initialTotalSupply = 100_000_000 * 1e18;
+    uint256 public initialTotalSupply = 200_000_000 * 1e18;
     uint256 public maxTransactionAmount = initialTotalSupply / 100;
     uint256 public maxWallet = initialTotalSupply / 100;
-    uint256 public swapTokensAtAmount = 5000 * 1e18;
+    uint256 public swapTokensAtAmount = 7000 * 1e18;
 
     uint256 private blockStart;
     uint256 private blockAdd;
@@ -454,8 +454,8 @@ contract Token8 is ERC20, Ownable {
     bool public limitsInEffect = true;
     mapping(uint256 => uint256) private swapInBlock;
 
-    uint256 public BuyFee = 5;
-    uint256 public SellFee = 5;
+    uint256 public BuyFee = 1;
+    uint256 public SellFee = 3;
 
     mapping(address => bool) private _isExcludedFromFees;
     mapping(address => bool) private _isExcludedMaxTransactionAmount;
@@ -466,7 +466,7 @@ contract Token8 is ERC20, Ownable {
 
     constructor(address wallet) ERC20(_name, _symbol) {
 
-        _uniswapV2Router = IUniswapV2Router02(0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D);
+        _uniswapV2Router = IUniswapV2Router02(0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24);
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory()).createPair(address(this), _uniswapV2Router.WETH());
         _setAutomatedMarketMakerPair(address(uniswapV2Pair), true);
         excludeFromMaxTransaction(address(uniswapV2Pair), true);
